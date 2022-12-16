@@ -1,7 +1,7 @@
 from rest_framework.authentication import get_authorization_header, BaseAuthentication
 from rest_framework import exceptions
 import jwt
-from cvbuilder.models import User
+from .models import User
 from django.conf import settings
 
 

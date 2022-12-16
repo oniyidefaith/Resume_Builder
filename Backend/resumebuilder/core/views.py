@@ -2,7 +2,17 @@ from django.shortcuts import render
 from .models import *
 from .serializers import *
 from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
+
+
 # Create your views here.
+
+class ResumeView(generics.CreateAPIView):
+    serializer_class = ResumeSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def perform_create(self, serializer):
+        return serializer.save(owner=self.request.user)
 
 
 class ProfileView(generics.CreateAPIView):
@@ -23,9 +33,12 @@ class DetailProfile(generics.RetrieveUpdateAPIView):
 
 
 class CreateLinks(generics.CreateAPIView):
-    authentication_classes = []
     queryset = Links.objects.all()
     serializer_class = LinkSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def perform_create(self, serializer):
+        return serializer.save(owner=self.request.user)
 
 
 class GetLinks(generics.RetrieveUpdateAPIView):

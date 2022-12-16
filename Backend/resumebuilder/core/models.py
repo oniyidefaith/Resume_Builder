@@ -2,7 +2,13 @@ from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
 from cvbuilder.models import User
 
+
 # Create your models here.
+
+class CreateResume(models.Model):
+    name = models.CharField(max_length=225)
+    slug = models.CharField(max_length=225)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
 
 class Profile(models.Model):
@@ -19,7 +25,7 @@ class Profile(models.Model):
     Region = models.CharField(max_length=100)
     Country = models.CharField(max_length=100)
     Postal = models.IntegerField()
-    # owner = models.ForeignKey(to=User)
+    saved = models.ForeignKey(CreateResume, on_delete=models.CASCADE)
 
 
 def __str__(self):
@@ -29,6 +35,7 @@ def __str__(self):
 class Links(models.Model):
     Title = models.CharField(max_length=100)
     Website = models.URLField(max_length=360)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
 
 def __str__(self):

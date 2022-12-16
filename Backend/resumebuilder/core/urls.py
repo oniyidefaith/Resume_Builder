@@ -3,6 +3,7 @@ from .views import *
 
 
 urlpatterns = [
+    path('create', ResumeView.as_view(), name='create-resume'),
     path('profile', ProfileView.as_view()),
     path('profileD/<int:pk>/', DetailProfile.as_view()),
     path('links', CreateLinks.as_view()),
