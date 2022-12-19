@@ -15,16 +15,28 @@ class ResumeView(generics.CreateAPIView):
         return serializer.save(owner=self.request.user)
 
 
-class ProfileView(generics.CreateAPIView):
+class DeleteResume(generics.DestroyAPIView):
     authentication_classes = []
+    queryset = Links.objects.all()
+    serializer_class = ResumeSerializer
+
+
+class ProfileView(generics.CreateAPIView):
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def perform_create(self, serializer):
+        return serializer.save(owner=self.request.user)
 
 
 class DetailProfile(generics.RetrieveUpdateAPIView):
-    authentication_classes = []
     queryset = Profile.objects.all()
     serializer_class = ProfileSerializer
+    permission_classes = [IsAuthenticated, ]
+
+    def get_queryset(self):
+        return Profile.objects.filter(owner=self.request.user)
 
 
 # class DetailProfile(generics.RetrieveAPIView):
@@ -41,49 +53,86 @@ class CreateLinks(generics.CreateAPIView):
         return serializer.save(owner=self.request.user)
 
 
-class GetLinks(generics.RetrieveUpdateAPIView):
-    authentication_classes = []
-    queryset = Links.objects.all()
+class ListLinks(generics.ListAPIView):
     serializer_class = LinkSerializer
+    permission_classes = [IsAuthenticated, ]
+    queryset = Links.objects.all()
+
+    def get_queryset(self):
+        return Links.objects.filter(owner=self.request.user)
 
 
-class DeleteLinks(generics.DestroyAPIView):
-    authentication_classes = []
+class GetLinks(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsAuthenticated,)
     queryset = Links.objects.all()
     serializer_class = LinkSerializer
+    lookup_field = "id"
+
+    def get_queryset(self):
+        return Links.objects.filter(owner=self.request.user)
 
 
 class CreateWorkExperience(generics.CreateAPIView):
-    authentication_classes = []
     queryset = WorkExperience.objects.all()
     serializer_class = WorkExperienceSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def perform_create(self, serializer):
+        return serializer.save(owner=self.request.user)
 
 
-class UpdateWorkExperience(generics.RetrieveUpdateAPIView):
-    authentication_classes = []
+class UpdateWorkExperience(generics.RetrieveUpdateDestroyAPIView):
     queryset = WorkExperience.objects.all()
     serializer_class = WorkExperienceSerializer
+    permission_classes = (IsAuthenticated,)
+    lookup_field = "id"
 
-
-class DeleteWorkExperience(generics.DestroyAPIView):
-    authentication_classes = []
-    queryset = WorkExperience.objects.all()
-    serializer_class = WorkExperienceSerializer
+    def get_queryset(self):
+        return WorkExperience.objects.filter(owner=self.request.user)
 
 
 class CreateEducationalHistory(generics.CreateAPIView):
-    authentication_classes = []
     queryset = Education.objects.all()
     serializer_class = EducationSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def perform_create(self, serializer):
+        return serializer.save(owner=self.request.user)
 
 
-class UpdateEducationHistory(generics.RetrieveUpdateAPIView):
-    authentication_classes = []
+class UpdateEducationHistory(generics.RetrieveUpdateDestroyAPIView):
     queryset = Education.objects.all()
     serializer_class = EducationSerializer
+    permission_classes = (IsAuthenticated,)
+    lookup_field = "id"
+
+    def get_queryset(self):
+        return WorkExperience.objects.filter(owner=self.request.user)
 
 
-class DeleteEducationalHistory(generics.DestroyAPIView):
-    authentication_classes = []
-    queryset = Education.objects.all()
-    serializer_class = EducationSerializer
+class CreateAwards(generics.CreateAPIView):
+    queryset = Awards.objects.all()
+    serializer_class = AwardSerializer
+    permission_classes = (IsAuthenticated,)
+
+    def perform_create(self, serializer):
+        return serializer.save(owner=self.request.user)
+
+
+class ListAwards(generics.ListAPIView):
+    serializer_class = AwardSerializer
+    permission_classes = [IsAuthenticated, ]
+    queryset = Awards.objects.all()
+
+    def get_queryset(self):
+        return Awards.objects.filter(owner=self.request.user)
+
+
+class UpdateAwards(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Awards.objects.all()
+    serializer_class = AwardSerializer
+    permission_classes = (IsAuthenticated,)
+    lookup_field = "id"
+
+    def get_queryset(self):
+        return Awards.objects.filter(owner=self.request.user)

@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bb717c4a-6101-44d5-a46e-0f21644e20a4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/resumebuilder/core/migrations/0002_rename_owner_links_own_remove_links_title.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resumebuilder/None/bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resumebuilder/None/bg_TDmiSrf.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resumebuilder/None/bg_k9JYyhW.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resumebuilder/core/migrations/0002_remove_profile_saved.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resumebuilder/.coverage" beforeDir="false" afterPath="$PROJECT_DIR$/resumebuilder/.coverage" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resumebuilder/core/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/resumebuilder/core/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resumebuilder/core/migrations/0002_rename_owner_links_own_remove_links_title.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resumebuilder/core/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/resumebuilder/core/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resumebuilder/core/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/resumebuilder/core/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resumebuilder/core/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/resumebuilder/core/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resumebuilder/core/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/resumebuilder/core/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resumebuilder/cvbuilder/jwt.py" beforeDir="false" afterPath="$PROJECT_DIR$/resumebuilder/cvbuilder/jwt.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resumebuilder/cvbuilder/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/resumebuilder/cvbuilder/migrations/0001_initial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../frontend/src/components/Pages/AboutPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../frontend/src/components/Pages/AboutPage.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

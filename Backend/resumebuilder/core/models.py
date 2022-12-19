@@ -25,7 +25,7 @@ class Profile(models.Model):
     Region = models.CharField(max_length=100)
     Country = models.CharField(max_length=100)
     Postal = models.IntegerField()
-    saved = models.ForeignKey(CreateResume, on_delete=models.CASCADE)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
 
 def __str__(self):
@@ -52,6 +52,7 @@ class WorkExperience(models.Model):
     Website = models.URLField(max_length=300)
     Summary = models.CharField(max_length=400)
     present = models.BooleanField(default=False)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
 
 def __str__(self):
@@ -68,6 +69,7 @@ class Education(models.Model):
     StartDate = models.DateField()
     EndDate = models.DateField(blank=True)
     Description = models.CharField(max_length=500)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
 
 def __str__(self):
@@ -80,6 +82,7 @@ class Awards(models.Model):
     URL = models.URLField()
     Date = models.DateField()
     Description = models.CharField(max_length=300)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
 
 def __str__(self):
@@ -91,6 +94,7 @@ class Certifications(models.Model):
     Issuer = models.CharField(max_length=100)
     URL = models.URLField()
     Description = models.CharField(max_length=200)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
 
 def __str__(self):
@@ -103,6 +107,7 @@ class Publication(models.Model):
     Name = models.CharField(max_length=100)
     Date = models.DateField()
     Description = models.CharField(max_length=200)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
 
 def __str__(self):
@@ -120,6 +125,7 @@ class Skills(models.Model):
     Name = models.CharField(max_length=100)
     Level = models.CharField(max_length=50, choices=SELECT_LEVEL_CHOICE, default='Beginner')
     SubSkill = models.CharField(max_length=100)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
 
 def __str__(self):
@@ -129,6 +135,7 @@ def __str__(self):
 class Languages(models.Model):
     Name = models.CharField(max_length=100)
     Level = models.CharField(max_length=50, choices=SELECT_LEVEL_CHOICE, default='beginner')
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
 
 def __str__(self):
@@ -137,6 +144,7 @@ def __str__(self):
 
 class Interests(models.Model):
     Name = models.CharField(max_length=100)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
 
 def __str__(self):
@@ -150,6 +158,7 @@ class VolunteerExperience(models.Model):
     EndDate = models.DateField()
     URL = models.URLField()
     Summary = models.CharField(max_length=200)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
 
 def __str__(self):
@@ -163,9 +172,11 @@ class Projects(models.Model):
     EndDate = models.DateField()
     URL = models.URLField()
     Summary = models.CharField(max_length=100)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
 
 class References(models.Model):
     Name = models.CharField(max_length=100)
     Relationship = models.CharField(max_length=100)
     Phone = PhoneNumberField(blank=True, region=None)
+    owner = models.ForeignKey(to=User, on_delete=models.CASCADE)

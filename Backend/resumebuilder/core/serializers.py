@@ -12,14 +12,14 @@ class ProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Profile
         fields = (
-            'Image', 'Full_Name', 'Date', 'email', 'Phone', 'Gender', 'Description', 'Summary', 'Address', 'City',
+            'id', 'Image', 'Full_Name', 'Date', 'email', 'Phone', 'Gender', 'Description', 'Summary', 'Address', 'City',
             'Region', 'Country', 'Postal')
 
 
 class LinkSerializer(serializers.ModelSerializer):
     class Meta:
         model = Links
-        fields = ('Title', 'Website')
+        fields = ('id', 'Title', 'Website')
 
 
 class WorkExperienceSerializer(serializers.ModelSerializer):
@@ -27,11 +27,17 @@ class WorkExperienceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = WorkExperience
-        fields = ('Title', 'Position', 'Employer', 'Url', 'StartDate', 'EndDate', 'Website', 'Summary', 'present')
+        fields = ('id', 'Title', 'Position', 'Employer', 'Url', 'StartDate', 'EndDate', 'Website', 'Summary', 'present')
 
 
 class EducationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Education
         fields = (
-            'Institute', 'Degree', 'School', 'URL', 'City', 'Country', 'StartDate', 'EndDate', 'Description')
+            'id', 'Institute', 'Degree', 'School', 'URL', 'City', 'Country', 'StartDate', 'EndDate', 'Description')
+
+
+class AwardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Awards
+        fields = ('id', 'Title', 'Issuer', 'URL', 'Date', 'Description')
