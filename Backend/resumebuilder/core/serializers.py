@@ -41,3 +41,51 @@ class AwardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Awards
         fields = ('id', 'Title', 'Issuer', 'URL', 'Date', 'Description')
+
+
+class CertificationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Certifications
+        fields = ('id', 'certificate', 'Issuer', 'URL', 'Description')
+
+
+class PublicationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Publication
+        fields = ('id', 'Title', 'Name', 'URL', 'Date', 'Description')
+
+
+class SkillSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Skills
+        fields = ('id', 'Name', 'Level', 'SubSkill')
+
+
+class LanguageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Languages
+        fields = ('id', 'Name', 'Level')
+
+
+class InterestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Interests
+        fields = ('id', 'Name')
+
+
+class VolunteerSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VolunteerExperience
+        fields = ('id', 'Organization', 'Position', 'StartDate', 'EndDate', 'URL', 'Summary')
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Projects
+        fields = ('id', 'Name', 'Description', 'URL')
+
+
+class ReferenceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = References
+        fields = ('id', 'Name', 'Relationship', 'Phone',)

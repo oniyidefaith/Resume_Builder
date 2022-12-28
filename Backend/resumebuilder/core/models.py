@@ -155,7 +155,7 @@ class VolunteerExperience(models.Model):
     Organization = models.CharField(max_length=100)
     Position = models.CharField(max_length=100)
     StartDate = models.DateField()
-    EndDate = models.DateField()
+    EndDate = models.DateField(blank=True)
     URL = models.URLField()
     Summary = models.CharField(max_length=200)
     owner = models.ForeignKey(to=User, on_delete=models.CASCADE)
@@ -168,8 +168,6 @@ def __str__(self):
 class Projects(models.Model):
     Name = models.CharField(max_length=100)
     Description = models.CharField(max_length=100)
-    StartDate = models.DateField()
-    EndDate = models.DateField()
     URL = models.URLField()
     Summary = models.CharField(max_length=100)
     owner = models.ForeignKey(to=User, on_delete=models.CASCADE)

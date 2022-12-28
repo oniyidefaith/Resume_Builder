@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'knox',
     'rest_framework_simplejwt',
+    'oauth2_provider',
 
     # local apps
     'cvbuilder',
@@ -48,6 +49,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Open api documentation
+    'drf_yasg',
+
 ]
 
 MIDDLEWARE = [
@@ -112,11 +116,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
 AUTH_USER_MODEL = "cvbuilder.User"
+LOGIN_URL = '/admin/login/'
 
 LANGUAGE_CODE = 'en-us'
 
@@ -144,7 +148,11 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'cvbuilder.jwt.JWTAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+        'rest_framework.permissions.IsAuthenticated',
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    ),
+    'DEFAULT_PAGINATION_CLASS': "rest_framework.pagination.PageNumberPagination",
+    'PAGE_SIZE': 12,
 }
 
 # jazzime Config
